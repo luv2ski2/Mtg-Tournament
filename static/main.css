@@ -1,0 +1,46 @@
+body, html {
+    /*background-color: lightblue;*/
+    margin: 0;
+    /*font-family: sans-serif;*/
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/*html {*/
+/*    background: radial-gradient(circle, SkyBlue, SkyBlue 50%, LightCyan 50%, SkyBlue);*/
+/*    background-size: 8px 8px;*/
+/*}*/
+
+.content {
+    margin: 0 auto;
+    width: 400px;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+#content {
+    width: 70%;
+}
+
+.javascript {
+    margin-left: 75px;
+}
