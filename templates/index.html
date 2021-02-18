@@ -6,4 +6,27 @@
 
 {% block body %}
     <h1 style="text-align: center">MTG Tournament Website!</h1>
+    <div class="addEventLink">
+    <a href="/addEvent/">Add Event</a>
+    </div>
+    {% if events|length > 0 %}
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Link</th>
+        </tr>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.name }}</td>
+                <td>
+                    <a href="/eventDetails/{{ event.id }}">Details</a>
+                    <br>
+                    <a href="/delete/{{ event.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <h3 style="text-align: center">No events</h3>
+    {% endif %}
 {% endblock %}

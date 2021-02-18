@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center">Add an event</h1>
+    <form action="/addEvent/" method="POST" style="text-align: center">
+        <input type="text" name="eventName" id="eventName" value="Name">
+        <input type="text" name="eventDetails" id="eventDetails" value="Details">
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}
