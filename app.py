@@ -53,17 +53,37 @@ def addEvent():
 @app.route('/eventDetails/<int:id>')
 def eventDetails(id):
     event = Event.query.get_or_404(id)
-    return render_template('eventDetails.html', name=event.name, details=event.details)
+    decks = event.posts
+    print(decks)
+    return render_template('eventDetails.html', event=event, decks=decks)
 
 @app.route('/delete/<int:id>')
 def deleteEvent(id):
     event = Event.query.get_or_404(id)
+    decks = event.posts
+    print(decks)
     try:
+        for deck in decks:
+            db.session.delete(deck)
         db.session.delete(event)
         db.session.commit()
         return redirect('/')
     except:
         return "There was an error deleting your event"
+
+@app.route('/addDeck/<int:id>', methods=['POST', 'GET'])
+def addDeck(id):
+    if request.method == 'POST':
+        event = Event.query.get_or_404(id)
+        name = request.form['deckName']
+        details = request.form['deckDetails']
+        newDeck = Deck(name=name, list=details)
+        event.posts.append(newDeck)
+        db.session.commit()
+        return redirect('/')
+    else:
+        event = Event.query.get_or_404(id)
+        return render_template('addDeck.html', event=event)
 
 
 if __name__ == '__main__':

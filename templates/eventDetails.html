@@ -5,8 +5,26 @@
 {% endblock %}
 
 {% block body %}
-    <h1 style="text-align: center">Details for {{ name }}</h1>
-    <h3 style="text-align: center">{{ details }}</h3>
+    <h1 style="text-align: center">Details for {{ event.name }}</h1>
+    <h3 style="text-align: center">{{ event.details }}</h3>
+    {% if decks|length > 1 %}
+        <table>
+        <tr>
+            <th>Deck Name</th>
+            <th>Deck List</th>
+        </tr>
+        {% for deck in decks %}
+            <tr>
+                <th>{{ deck.name }}</th>
+                <th>{{ deck.list }}</th>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h3 style="text-align: center">No decks. Add one below!</h3>
+    {% endif %}
+    <br>
+    <h3 style="text-align: center"><a href="/addDeck/{{ event.id }}">Add a deck</a></h3>
     <br>
     <h3 style="text-align: center"><a href="/">Return to main page</a> </h3>
 {% endblock %}

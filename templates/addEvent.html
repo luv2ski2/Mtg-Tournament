@@ -8,7 +8,10 @@
     <h1 style="text-align: center">Add an event</h1>
     <form action="/addEvent/" method="POST" style="text-align: center">
         <input type="text" name="eventName" id="eventName" value="Name">
-        <input type="text" name="eventDetails" id="eventDetails" value="Details">
-        <input type="submit" value="Update">
+        <br>
+{#        <input type="text" name="eventDetails" id="eventDetails" value="Details">#}
+        <textarea name="eventDetails" id="eventDetails" rows="4" cols="20"></textarea>
+        <br>
+        <input type="submit" value="Add Event">
     </form>
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center">Add a deck for {{ event.name }}</h1>
+    <form action="/addDeck/{{ event.id }}" method="POST" style="text-align: center">
+        <input type="text" name="deckName" id="deckName" value="Name">
+{#        <br>#}
+        <input type="text" name="deckDetails" id="deckDetails" value="Details">
+{#        <textarea name="eventDetails" id="eventDetails" rows="4" cols="20"></textarea>#}
+{#        <br>#}
+        <input type="submit" value="Add Event">
+    </form>
+
+{# this is just a reminder to delete the stuff below #}
+    <h1 style="text-align: center">Details for {{ name }}</h1>
+    <h3 style="text-align: center">{{ details }}</h3>
+    <br>
+    <h3 style="text-align: center"><a href="/">Return to main page</a> </h3>
+{% endblock %}
